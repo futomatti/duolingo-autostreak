@@ -1,9 +1,11 @@
 # Use the official Node.js image
-FROM node:14
+FROM node:20-bullseye-slim
 
 # Install cron
-RUN apt-get update && apt-get install -y cron
-
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends cron \
+  && rm -rf /var/lib/apt/lists/*
+  
 # Set the working directory inside the container
 WORKDIR /app
 
