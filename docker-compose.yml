@@ -1,0 +1,12 @@
+services:
+  duolingo-streak:
+    container_name: duolingo_streak
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      DUOLINGO_JWT: "paste_your_jwt_here"
+      LESSONS: "1"
+    volumes:
+      - /volume1/docker/duolingo-streak/logs:/var/log
