@@ -35,4 +35,4 @@ RUN crontab /etc/cron.d/cron
 RUN touch /var/log/cron.log
 
 # Start the cron
-CMD cron && tail -f /var/log/cron.log
+CMD sh -c "cron && touch /var/log/cron.log && tail -F /var/log/cron.log"
